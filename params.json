@@ -1,0 +1,6 @@
+{
+  "name": "Xmgc main",
+  "tagline": "m.xmgc360.com的主程序；仅提供modules的列表和供管理员使用的接口",
+  "body": "###m.xmgc360.com的主程序\r\n提供modules服务器列表\r\n提供管理员modules服务器增删接口",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
