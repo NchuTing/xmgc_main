@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+
+
+
+
+/usr/sbin/ntpdate ntpupdate.tencentyun.com >/dev/null 2>&1 &
+/usr/local/qcloud/rps/set_rps.sh >/tmp/setRps.log 2>&1
+/usr/local/qcloud/irq/net_smp_affinity.sh >/tmp/net_affinity.log 2>&1
+#secu_agent init monitor, install at Fri Jul 15 09:40:03 CST 2016
+/usr/local/sa/agent/init_check.sh  > /dev/null 2>&1
+
+#启动node
+#node /xmgc_main/_app.js -root
+
+#开机启动pm2
+pm2 list --root
+pm2 start /xmgc_main/_app.js --watch  -root

@@ -7,6 +7,7 @@ _app.hostPort = 8000;
 var $http = global.$http = require('http');
 var $https = global.$https = require('https');
 var $fs = global.$fs = require('fs');
+var $path = global.$path = require('path');
 var $co = global.$co = require('co');
 var $koa = global.$koa = require('koa');
 var $router = global.$router = require('koa-router');
@@ -25,16 +26,14 @@ global._rotr = require('./my_modules/rotr.js');
 
 //global._qn = require('./mymodules/qn.js');
 
-
-
 //服务器对象
 var koaSvr = _app.koaSvr = $koa();
 var httpSvr = _app.httpSvr = $http.createServer(koaSvr.callback());
 
 //https服务器
 var httpsOpt = {
-    key: $fs.readFileSync('./ssl/privatekey.pem'),
-    cert: $fs.readFileSync('./ssl/certificate.pem')
+    key: $fs.readFileSync(__path + '/ssl/privatekey.pem'),
+    cert: $fs.readFileSync(__path + '/ssl/certificate.pem')
 };
 var httpsSvr = _app.httpsSvr = $https.createServer(httpsOpt, koaSvr.callback());
 //httpSvr =httpsSvr;
