@@ -38,7 +38,6 @@ var httpsOpt = {
 var httpsSvr = _app.httpsSvr = $https.createServer(httpsOpt, koaSvr.callback());
 //httpSvr =httpsSvr;
 
-
 /*读取外部xcfg文件写入_xfg全局参数
  */
 (function () {

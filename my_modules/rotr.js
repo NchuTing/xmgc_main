@@ -44,17 +44,18 @@ function* apihandler(next) {
 
 /*获取modules的接口,暂时只是读取nginx.d/nginx.conf并返回
  */
-_rotr.apis.getModules = function () {
+_rotr.apis.getConf = function () {
     var ctx = this;
 
     var co = $co(function* () {
         var resp = __newMsg(1, 'ok', {});
-        resp.data.conf = $fs.readFileSync('./nginx.d/nginx.conf', 'utf8');
+        resp.data.conf = $fs.readFileSync(__path+'/nginx.d/nginx.conf', 'utf8');
         ctx.body = resp;
         return ctx;
     });
     return co;
 };
+
 
 /*测试接口
  */
