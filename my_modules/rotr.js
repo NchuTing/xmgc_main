@@ -49,7 +49,8 @@ _rotr.apis.getConf = function () {
 
     var co = $co(function* () {
         var resp = __newMsg(1, 'ok', {});
-        resp.data.conf = $fs.readFileSync(__path+'/nginx.d/nginx.conf', 'utf8');
+        resp.data.mainConf = $fs.readFileSync(__path+'/nginx.d/nginx.conf', 'utf8');
+        resp.data.moduleConf = $fs.readFileSync(__path+'/nginx.d/mix.conf', 'utf8');
         ctx.body = resp;
         return ctx;
     });
