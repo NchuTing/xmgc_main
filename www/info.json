@@ -1,0 +1,18 @@
+{
+    "name": "main",
+    "path": "main/",
+    "author": "zhyuzh",
+    "time": "2016-09-03 10:00",
+    "apis": [{
+        "name": "getConf",
+        "desc": "获取m.xmgc360主服务器Nginx设置文件以及main模块的Nginx设置文件",
+        "method": ["GET"],
+        "reqDat": "undefined",
+        "respDat": {
+            "mainConf": "主服务器的Nginx的conf设置文件，字符串格式",
+            "moduleConf": "main模块服务器的Nginx的conf设置文件，字符串格式"
+        },
+        "tip": "返回数据是真实读取文件字符串，并非json格式也无法转换，需要的话请用正则表达式截取",
+        "author": "zhyuzh"
+    }]
+}
